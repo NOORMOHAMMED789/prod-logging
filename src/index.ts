@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import { userRoutes } from "./routes";
 
 const server = fastify({
     logger: {
@@ -27,13 +28,14 @@ server.get('/error', async(request, reply) => {
     throw new Error('This is a simulated error to test with Grafana')
 })
 
+userRoutes(server)
 
 const start = async () => {
     try {
         await server.listen({ port: PORT, host:'0.0.0.0'})
-        console.log(`Server is running at http://localhost:${PORT}`);
+        server.log.info(`Server is running at http://localhost:${PORT}`);
     } catch (err) {
-        console.log(err);
+        server.log.info(err);
         process.exit(1);
     }
 }

@@ -1,1 +1,1 @@
-GET http://localhost:3000/error
+GET http://localhost:3000/users
