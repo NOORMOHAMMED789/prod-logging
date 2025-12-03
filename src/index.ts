@@ -24,7 +24,7 @@ server.get('/', async(request, reply) => {
 
 server.get('/error', async(request, reply) => {
     request.log.info('Error endpoint was called')
-    throw new Error('This is a simulated error')
+    throw new Error('This is a simulated error to test with Grafana')
 })
 
 
